@@ -15,11 +15,17 @@ sh 'mvn compile'
 stage(two){
 steps{
 echo 'Running Unit Tets on worker app'
+dir ('worker'){
+sh 'mvn clean test'
+}
 }
 }
 stage(three){
 steps{
 echo 'Packaging worker app'
+dir ('worker'){
+sh 'mvn package'
+}
 }
 }
 }
