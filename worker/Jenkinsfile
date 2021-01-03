@@ -44,7 +44,7 @@ post{
 always{
 echo 'Building multibranch pipeline for worker is completed and ready..'
  }
-failure{
+failiure{
 slackSend (channel:"instavote-cd", message: "Build Failed - ${env.JOB_NAME} - ${env.BUILD_NUMBER} (<${env.BUILD__URL|Open)")
 }
 success{
