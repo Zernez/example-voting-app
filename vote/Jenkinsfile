@@ -13,7 +13,7 @@ changeset "**/vote/**"
 steps{
 echo 'Compiling result app'
 dir('result'){
-pip install -i requirements.txt
+sh 'pip install -i requirements.txt'
 }
 }
 }
@@ -24,7 +24,7 @@ changeset "**/vote/**"
 steps{
 echo 'Running Unit Tests on worker app'
 dir ('result'){
-nosetests -v
+sh 'nosetests -v'
 }
 }
 }
