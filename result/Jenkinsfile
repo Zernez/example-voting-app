@@ -39,3 +39,4 @@ slackSend (channel:"instavote-cd", message: "Build Succeded - ${env.JOB_NAME} - 
 }
 }
 }
+}
