@@ -6,22 +6,22 @@ nodejs 'NodeJS 8.9.0'
 stages{
 stage(build){
 when {
-changeset "**/worker/**"
+changeset "**/result/**"
 }
 steps{
 echo 'Compiling result app'
-dir('worker'){
+dir('result'){
 sh 'mvn install'
 }
 }
 }
 stage(test){
 when {
-changeset "**/worker/**"
+changeset "**/result/**"
 }
 steps{
 echo 'Running Unit Tests on worker app'
-dir ('worker'){
+dir ('result'){
 sh 'mpm test'
 }
 }
