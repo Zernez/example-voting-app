@@ -1,0 +1,39 @@
+pipeline {
+
+agent {
+docker{
+image 'python:2.7.16-slim'
+}
+
+stages{
+stage(build){
+when {
+changeset "**/vote/**"
+}
+steps{
+echo 'Compiling result app'
+dir('result'){
+pip install -i requirements.txt
+}
+}
+}
+stage(test){
+when {
+changeset "**/vote/**"
+}
+steps{
+echo 'Running Unit Tests on worker app'
+dir ('result'){
+nosetests -v
+}
+}
+}
+}
+post{
+always{
+echo 'Building multibranch pipeline for worker is completed and ready..'
+ }
+failure{ slackSend (channel:"instavote-cd", message: "Build Failed - ${env.JOB_NAME} - ${env.BUILD_NUMBER} (<${env.BUILD_URL|Open>)") }
+success{ slackSend (channel:"instavote-cd", message: "Build Succeded - ${env.JOB_NAME} - ${env.BUILD_NUMBER} (<${env.BUILD_URL|Open>)") }
+}
+}
