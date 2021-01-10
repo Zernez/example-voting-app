@@ -26,8 +26,6 @@ sh 'mpm test'
 }
 }
 }
-}
-}
 post{
 always{
 echo 'Building multibranch pipeline for worker is completed and ready..'
