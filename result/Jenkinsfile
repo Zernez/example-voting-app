@@ -22,7 +22,7 @@ changeset "**/result/**"
 steps{
 echo 'Running Unit Tests on worker app'
 dir ('result'){
-sh 'mpm test'
+sh 'npm test'
 }
 }
 }
