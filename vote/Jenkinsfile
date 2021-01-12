@@ -14,7 +14,7 @@ changeset "**/vote/**"
 }
 steps{
 echo 'Compiling vote app'
-dir('result'){
+dir('vote'){
 sh 'pip install -i requirements.txt'
 }
 }
@@ -25,7 +25,7 @@ changeset "**/vote/**"
 }
 steps{
 echo 'Running Unit Tests on vote app'
-dir ('result'){
+dir ('vote'){
 sh 'nosetests -v'
 }
 }
@@ -33,7 +33,7 @@ sh 'nosetests -v'
 }
  post{
  always{
- echo 'Building multibranch pipeline for worker is completed..'
+ echo 'Building multibranch pipeline for vote is completed..'
  }
  failure{
  slackSend (channel: "instavote-cd", message: "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
