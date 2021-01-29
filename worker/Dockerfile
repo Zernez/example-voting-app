@@ -1,4 +1,4 @@
-FROM maven:jdk-8-slim
+FROM maven
 WORKDIR /app
 COPY .  .
 RUN mvn package && \    
