@@ -1,7 +1,10 @@
 pipeline {  
+
 agent none  
+
 stages{      
-stage("build"){        
+
+stage('build'){        
 when{            
 changeset "**/worker/**"          
 }        
@@ -18,7 +21,7 @@ sh 'mvn compile'
 }        
 }      
 }      
-stage("test"){        
+stage('test'){        
 when{          
 changeset "**/worker/**"        
 }        
@@ -35,7 +38,8 @@ sh 'mvn clean test'
 }          
 }      
 }      
-stage("package"){        
+
+stage('package'){        
 when{          
 branch 'master'          
 changeset "**/worker/**"        
@@ -54,6 +58,7 @@ archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 }        
 }      
 }      
+
 stage('docker-package'){          
 agent any          
 when{            

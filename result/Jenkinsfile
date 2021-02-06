@@ -4,7 +4,7 @@ agent none
 
 stages{
 
-stage(build){
+stage('build'){
 when {
 changeset "**/result/**"
 }
@@ -21,7 +21,7 @@ sh 'npm install'
 }
 }
 
-stage(test){
+stage('test'){
 when {
 changeset "**/result/**"
 }
