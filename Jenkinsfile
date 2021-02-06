@@ -80,7 +80,7 @@ workerImage.push("latest")
 }      
 }
 
-stage(result build){
+stage('result build'){
 when {
 changeset "**/result/**"
 }
@@ -97,7 +97,7 @@ sh 'npm install'
 }
 }
 
-stage(result test){
+stage('result test'){
 when {
 changeset "**/result/**"
 }
