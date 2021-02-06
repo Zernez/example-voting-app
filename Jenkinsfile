@@ -194,7 +194,7 @@ workerImage.push("latest")
 
 post{
  always{
- echo 'Building pipeline for instavote is completed..'
+ echo 'Building monopipeline for instavote is completed..'
  }
  failure{
  slackSend (channel: "instavote-cd", message: "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
