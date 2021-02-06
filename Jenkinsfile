@@ -86,7 +86,7 @@ changeset "**/result/**"
 }
 agent{
 docker{
-image: 'node:8.16.0:alpine'
+image 'node:8.16.0:alpine'
 }
 }
 steps{
@@ -103,7 +103,7 @@ changeset "**/result/**"
 }
 agent{
 docker{
-image: 'node:8.16.0:alpine'
+image 'node:8.16.0:alpine'
 }
 }
 steps{
